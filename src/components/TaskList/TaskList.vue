@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { useTaskStore } from "../../stores/taskStore";
+import { RouterLink } from "vue-router";
+import { defineProps } from "vue";
 
-const taskStore = useTaskStore();
+const { getTasks, tasks } = defineProps(["getTasks", "tasks"]);
 
-onMounted(() => taskStore.getTasks());
+onMounted(getTasks);
 </script>
 
 <template>
   <div class="tasks">
-    <div class="task" v-for="task in taskStore.tasks" :key="task.id">
-      <h3>{{ task.title }}</h3>
+    <h2>Your tasks list</h2>
+    <div class="task" v-for="task in tasks" :key="task.id">
+      <RouterLink :to="`/tasks/${task.id}`">{{ task.title }}</RouterLink>
     </div>
   </div>
 </template>

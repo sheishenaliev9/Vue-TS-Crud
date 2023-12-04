@@ -1,11 +1,12 @@
 <script setup lang="ts">
-// import { RouterView } from "vue-router";
-import TasksView from "./views/TasksView/TasksView.vue";
+import { RouterView } from "vue-router";
+import Header from "./components/Header/Header.vue";
 </script>
 
 <template>
   <div>
-    <TasksView />
+    <Header />
+    <RouterView />
   </div>
 </template>
 

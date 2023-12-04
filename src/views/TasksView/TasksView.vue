@@ -6,7 +6,11 @@ const taskStore = useTaskStore();
 </script>
 <template>
   <div>
-    <TaskList :getTasks="taskStore.getTasks" :tasks="taskStore.tasks" />
+    <TaskList
+      :getTasks="taskStore.getTasks"
+      :tasks="taskStore.tasks"
+      :deleteTask="taskStore.deleteTask"
+    />
   </div>
 </template>
 

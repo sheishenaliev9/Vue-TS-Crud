@@ -32,10 +32,31 @@ export const useTaskStore = defineStore("taskStore", () => {
     }
   };
 
+  const createTask = async () => {
+    try {
+      const { data } = await axios.get(
+        `${import.meta.env.VITE_MAIN_URL}/tasks`
+      );
+      tasks.value = data;
+    } catch (error) {
+      toast.error("Что-то пошло не так...");
+    }
+  };
+
+  const deleteTask = async (id: string) => {
+    try {
+      await axios.delete(`${import.meta.env.VITE_MAIN_URL}/tasks/${id}`);
+      getTasks();
+    } catch (error) {
+      toast.error("Что-то пошло не так...");
+    }
+  };
+
   return {
     tasks,
     currTask,
     getTasks,
     getTask,
+    deleteTask,
   };
 });

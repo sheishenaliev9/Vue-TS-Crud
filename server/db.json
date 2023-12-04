@@ -5,6 +5,12 @@
       "title": "JS",
       "body": "there is something interesting",
       "isCompleted": false
+    },
+    {
+      "title": "Aidar",
+      "body": "senior dev",
+      "isCompleted": false,
+      "id": 2
     }
   ]
 }

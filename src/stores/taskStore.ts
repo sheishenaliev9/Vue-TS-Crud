@@ -32,12 +32,14 @@ export const useTaskStore = defineStore("taskStore", () => {
     }
   };
 
-  const createTask = async () => {
+  const createTask = async (task: ITaskType) => {
     try {
-      const { data } = await axios.get(
-        `${import.meta.env.VITE_MAIN_URL}/tasks`
+      const { data } = await axios.post(
+        `${import.meta.env.VITE_MAIN_URL}/tasks`,
+        task
       );
-      tasks.value = data;
+      getTasks();
+      return data;
     } catch (error) {
       toast.error("Что-то пошло не так...");
     }
@@ -58,5 +60,6 @@ export const useTaskStore = defineStore("taskStore", () => {
     getTasks,
     getTask,
     deleteTask,
+    createTask,
   };
 });

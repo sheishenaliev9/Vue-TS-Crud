@@ -21,7 +21,7 @@ export const useTaskStore = defineStore("taskStore", () => {
     }
   };
 
-  const getTask = async (id: string) => {
+  const getTask = async (id: number) => {
     try {
       const { data } = await axios.get(
         `${import.meta.env.VITE_MAIN_URL}/tasks/${id}`

@@ -14,7 +14,7 @@ const route = useRoute();
 const taskId = ref(route.params.id);
 const taskStore = useTaskStore();
 
-onMounted(() => taskStore.getTask(taskId.value));
+onMounted(() => taskStore.getTask(Number(taskId.value)));
 </script>
 
 <style scoped></style>
